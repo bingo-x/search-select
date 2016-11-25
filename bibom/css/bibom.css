@@ -1,0 +1,10 @@
+.bibom-list {overflow:hidden}
+.bibom-list .bibom-cell {margin-top:5px;margin-right:5px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;float: left;padding: 0 28px 0 18px;border-radius: 3px;height: 28px;line-height:28px;background-color: #fff;border:1px solid #ccc;position: relative;max-width: 120px}
+.bibom-list .bibom-cell .bibom-cell-i {width:16px;height:16px;background: url(../img/close.png) no-repeat 2px -39px;position: absolute;right:6px;top:6px;cursor: pointer;}
+#bibom-search-body {}
+#bibom-search-body .bibom-search-content {width: 180px;background-color:#fff;padding: 5px 10px;font-size: 12px;box-shadow: 1px 1px 3px rgba(0,0,0,.3);}
+#bibom-search-body .bibom-search-cell {color: #333;height: 23px;line-height: 23px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;cursor: pointer;border-radius: 3px;padding: 0 5px;border: 1px solid #999;margin-top:5px}
+#bibom-search-body .bibom-search-cell.active, #bibom-search-body .bibom-search-cell:hover {background-color: #fd7390;color: #fff;border: 1px solid #fd7390}
+#bibom-search-body .bibom-search-loading {height: 32px;padding: 8px 0;text-align: center}
+#bibom-search-body .bibom-search-loading .bibom-loading-img {height: 32px;width: 32px;margin: 0 auto;background: url(../img/loading.gif) no-repeat;}
+#bibom-search-body .bibom-search-tips {color: #333;height: 23px;line-height: 23px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;padding: 0 5px;margin-top:5px;text-align:center}

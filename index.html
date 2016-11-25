@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no, email=no" />
+        <title>demo</title>
+        <link rel="stylesheet" href="/bibom/css/bibom.css" />
+        <script type="text/javascript" src="/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="/md5.min.js"></script>
+        <script type="text/javascript" src="/common.js"></script>
+        <script type="text/javascript" src="/bibom/search-select.js"></script>
+    </head>
+    <body>
+        <div>
+              <input type="text" placeholder="搜索" id="keyword" onkeyup="search(this)" onclick="search(this)" value="" />
+              <button class="btn-normal" onclick="queryHistory(this)">选择历史</button>
+              <div id="key-list" class="bibom-list">
+              </div>
+        </div>
+        <script type="text/javascript">
+            function search(obj) {
+                var _name = 'key';
+                function success(result) {
+                    bibomClearContent();
+                    if (result.code == 'N00000') {
+                        var _data = result.data;
+                        if(_data.length > 0) {
+                            var key;
+                            for(key in _data) {
+                                bibomCreateOption(_data[key].id, _data[key].name, _name);
+                            }
+                        } else {
+                            bibomTips('无数据');
+                        }
+                    } else {
+                        bibomCloseSearch();
+                        console.log(result.message);
+                    }
+                }
+                var keyword = $('#keyword').val();
+                bibomSearch(obj, _name, "/test.php", {keyword:keyword}, success);
+            }
+            function queryHistory(obj) {
+                var name = 'key';
+                function success(data) {
+                    bibomClearContent();
+                    if(data != null && data.length > 0) {
+                        var key;
+                        for(key in data) {
+                            bibomCreateOption(data[key].id, data[key].name, name);
+                        }
+                    } else {
+                        bibomTips('无数据');
+                    }
+                }
+                bibomQueryHistory(obj, name, success);
+            }
+        </script>
+    </body>
+</html>
+
